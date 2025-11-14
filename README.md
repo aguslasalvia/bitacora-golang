@@ -1,4 +1,4 @@
-# 🧪 Bitácora CeFI FQ
+# 🧪 Bitácora
 
 > Proyecto desarrollado en conjunto con el **CeFI (Centro de Formación e Investigación)** de la **Facultad de Química – UDELAR (Universidad de la República, Uruguay)**.
 
@@ -6,7 +6,7 @@
 
 ## 📖 Descripción
 
-**Bitácora CeFI FQ** es una aplicación web diseñada para la **gestión de registros de uso de equipamiento** dentro de las instalaciones del CeFI.  
+**Bitácora** es una aplicación web diseñada para la **gestión de registros de uso de equipamiento** dentro de las instalaciones del CeFI.  
 Permite a los usuarios **ingresar nuevos registros** y **visualizarlos** tanto de forma individual como en una **tabla general de registros**.
 
 El sistema fue desarrollado para ser **hospedado localmente**, sin dependencias externas ni recursos distribuidos, garantizando un funcionamiento autónomo dentro de la red del CeFI.
