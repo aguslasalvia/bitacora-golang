@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"bitacora/core"
-	"bitacora/models"
+	"bitacora/internal/core"
+	"bitacora/internal/models"
 	"net/http"
 	"time"
 

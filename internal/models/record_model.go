@@ -1,8 +1,8 @@
 package models
 
 import (
-	"bitacora/config"
-	"bitacora/core"
+	"bitacora/internal/config"
+	"bitacora/internal/core"
 	"time"
 )
 

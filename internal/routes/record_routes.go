@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"bitacora/controllers"
+	"bitacora/internal/controllers"
 
 	"github.com/gin-gonic/gin"
 )
