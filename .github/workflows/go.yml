@@ -23,7 +23,7 @@ jobs:
       - name: Build
         run: |
           mkdir -p bin
-          go build -v -o bin/app .
+          go build -v -o bin/app ./cmd/bitacora/
           cp -r ./cmd/bitacora/templates bin/
 
       - name: Test
