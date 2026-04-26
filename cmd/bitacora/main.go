@@ -1,10 +1,10 @@
 package main
 
 import (
-	"bitacora/config"
-	"bitacora/routes"
+	"bitacora/internal/config"
+	"bitacora/internal/routes"
 
-	_ "bitacora/config"
+	_ "bitacora/internal/config"
 )
 
 func main() {
