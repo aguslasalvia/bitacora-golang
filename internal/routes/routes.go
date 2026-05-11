@@ -15,7 +15,7 @@ func SetupRoutes() *gin.Engine {
 
 	r.LoadHTMLGlob("templates/*")
 
-	// allow cors && specific methods
+	// allow cors && specific methods    
 	r.Use(cors.New(
 		cors.Config{
 			AllowOrigins: []string{"*"},

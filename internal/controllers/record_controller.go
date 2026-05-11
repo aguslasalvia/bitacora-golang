@@ -26,6 +26,7 @@ func (rc *RecordController) AddRecord(c *gin.Context) {
 	err := models.AddRecord(incomingRecord)
 
 	if err != nil {
+
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error al crear registro"})
 		return
 	}
