@@ -1,12 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bitácora CEFI | FQ</title>
-  <link rel="icon" type="image/png" href="https://example.com/favicon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -20,14 +18,12 @@
         </div>
         <div class="brand-text">
           <h1>Bitácora</h1>
-          <span>CEFI | FQ</span>
+          <span>CEFI · FQ</span>
         </div>
       </div>
-      <div class="header-actions">
-        <div class="date-display">
-          <i data-lucide="calendar-days"></i>
-          <span id="current-date"></span>
-        </div>
+      <div class="date-display">
+        <i data-lucide="calendar-days"></i>
+        <span id="current-date"></span>
       </div>
     </header>
 
@@ -39,9 +35,8 @@
           </div>
           <div class="header-content">
             <h2>Nuevo Registro</h2>
-            <p>Ingrese los datos del equipo</p>
+            <p>Complete los datos del equipo utilizado</p>
           </div>
-          <div class="step-indicator">1</div>
         </div>
 
         <form class="form-body">
@@ -51,19 +46,14 @@
                 <i data-lucide="user"></i>
                 Nombre completo
               </label>
-              <div class="input-wrapper">
-                <input type="text" id="name" placeholder="Ingrese su nombre">
-              </div>
+              <input type="text" id="name" placeholder="Ingrese su nombre">
             </div>
-
             <div class="form-field">
               <label for="lab">
-                <i data-lucide="building"></i>
+                <i data-lucide="building-2"></i>
                 Laboratorio
               </label>
-              <div class="input-wrapper">
-                <input type="text" id="lab" placeholder="Nombre del laboratorio">
-              </div>
+              <input type="text" id="lab" placeholder="Nombre del laboratorio">
             </div>
           </div>
 
@@ -72,83 +62,73 @@
               <i data-lucide="scan-line"></i>
               Equipo
             </label>
-            <div class="input-wrapper">
-              <select id="equipment" onchange="equipmentComments()">
-                <option value="">Seleccione un equipo</option>
-                <option value="HPLC">HPLC</option>
-                <option value="UHPLC">UHPLC</option>
-                <option value="UHPLC-MS">UHPLC-MS</option>
-                <option value="GC">GC</option>
-                <option value="UV">UV</option>
-                <option value="FTIR">FTIR</option>
-                <option value="NMR">NMR</option>
-                <option value="TOC">TOC</option>
-                <option value="EXRF">EXRF</option>
-                <option value="Cuba electroforesis">Cuba electroforesis</option>
-                <option value="Documentador de geles">Documentador de geles</option>
-                <option value="Transiluminador">Transiluminador</option>
-                <option value="Transiluminador UV">Transiluminador UV</option>
-                <option value="Potenciostato">Potenciostato</option>
-                <option value="Lector de microplacas">Lector de microplacas</option>
-                <option value="PCR">PCR</option>
-                <option value="Titulador automático">Titulador automático</option>
-                <option value="<Microscopio electronico de barrido (SEM)">Microscopio electrónico de barrido (SEM)
-                </option>
-              </select>
-            </div>
+            <select id="equipment" onchange="equipmentComments()">
+              <option value="">— Seleccione un equipo —</option>
+              <option value="HPLC">HPLC</option>
+              <option value="UHPLC">UHPLC</option>
+              <option value="UHPLC-MS">UHPLC-MS</option>
+              <option value="GC">GC</option>
+              <option value="UV">UV</option>
+              <option value="FTIR">FTIR</option>
+              <option value="NMR">NMR</option>
+              <option value="TOC">TOC</option>
+              <option value="EXRF">EXRF</option>
+              <option value="Cuba electroforesis">Cuba electroforesis</option>
+              <option value="Documentador de geles">Documentador de geles</option>
+              <option value="Transiluminador">Transiluminador</option>
+              <option value="Transiluminador UV">Transiluminador UV</option>
+              <option value="Potenciostato">Potenciostato</option>
+              <option value="Lector de microplacas">Lector de microplacas</option>
+              <option value="PCR">PCR</option>
+              <option value="Titulador automático">Titulador automático</option>
+              <option value="<Microscopio electronico de barrido (SEM)">Microscopio electrónico de barrido (SEM)</option>
+            </select>
           </div>
 
-          <div class="form-row triple">
-            <div class="form-field">
-              <label for="date">
-                <i data-lucide="calendar"></i>
-                Fecha
-              </label>
-              <div class="input-wrapper">
-                <input type="date" id="date">
-              </div>
-            </div>
+          <div class="form-field">
+            <label for="date">
+              <i data-lucide="calendar"></i>
+              Fecha
+            </label>
+            <input type="date" id="date">
+          </div>
 
+          <div class="form-row">
             <div class="form-field">
               <label for="startTime">
                 <i data-lucide="play"></i>
                 Hora inicio
               </label>
-              <div class="input-wrapper">
-                <input type="time" id="startTime">
-              </div>
+              <input type="time" id="startTime">
             </div>
-
             <div class="form-field">
               <label for="endTime">
                 <i data-lucide="stop-circle"></i>
                 Hora fin
               </label>
-              <div class="input-wrapper">
-                <input type="time" id="endTime">
-              </div>
+              <input type="time" id="endTime">
             </div>
           </div>
 
           <div class="toggle-section">
             <div class="toggle-item">
-              <div class="toggle-content">
+              <div class="toggle-label">
                 <i data-lucide="package-check"></i>
                 <span>Recibió en buen estado</span>
               </div>
-              <label class="toggle-switch">
+              <label class="switch">
                 <input type="checkbox" id="recived">
-                <span class="toggle-slider"></span>
+                <span class="slider"></span>
               </label>
             </div>
             <div class="toggle-item">
-              <div class="toggle-content">
+              <div class="toggle-label">
                 <i data-lucide="package-plus"></i>
                 <span>Devolvió en buen estado</span>
               </div>
-              <label class="toggle-switch">
+              <label class="switch">
                 <input type="checkbox" id="returned">
-                <span class="toggle-slider"></span>
+                <span class="slider"></span>
               </label>
             </div>
           </div>
@@ -158,9 +138,7 @@
               <i data-lucide="message-square"></i>
               Comentarios
             </label>
-            <div class="input-wrapper">
-              <textarea id="comments" placeholder="Comentarios adicionales..."></textarea>
-            </div>
+            <textarea id="comments" placeholder="Observaciones, condiciones de uso, incidencias..."></textarea>
           </div>
 
           <button type="button" class="submit-btn" onclick="formVerification()">
@@ -176,14 +154,13 @@
             <i data-lucide="history"></i>
           </div>
           <div class="header-content">
-            <h2>Registros</h2>
-            <p>Historial de bitácoras</p>
+            <h2>Historial</h2>
+            <p>Registros de uso de equipos</p>
           </div>
-          <div class="step-indicator">2</div>
         </div>
 
         <div class="filter-bar">
-          <div class="filter-select">
+          <div class="filter-select-wrap">
             <i data-lucide="filter"></i>
             <select id="slt-equipment">
               <option value="">Todos los equipos</option>
@@ -204,8 +181,7 @@
               <option value="Lector de microplacas">Lector de microplacas</option>
               <option value="PCR">PCR</option>
               <option value="Titulador automático">Titulador automático</option>
-              <option value="<Microscopio electronico de barrido (SEM)">Microscopio electrónico de barrido (SEM)
-              </option>
+              <option value="<Microscopio electronico de barrido (SEM)">Microscopio electrónico de barrido (SEM)</option>
             </select>
           </div>
           <button type="button" class="filter-btn" onclick="loadLogsTable()">
@@ -214,18 +190,20 @@
           </button>
         </div>
 
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Laboratorio</th>
-              <th>Equipo</th>
-              <th>Fecha</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="tbody-logs"></tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Laboratorio</th>
+                <th>Equipo</th>
+                <th>Fecha</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tbody-logs"></tbody>
+          </table>
+        </div>
       </div>
     </main>
   </div>
@@ -339,14 +317,14 @@
         for (let i = 0; i < response.length; i++) {
           date = new Date(response[i].StartDateTime).toLocaleDateString().split("/");
           table.innerHTML += `
-                        <tr>
-                            <td><div class="user-cell">${response[i].Name}</div></td>
-                            <td>${response[i].Lab}</td>
-                            <td><span class="equipment-tag">${response[i].Equipment}</span></td>
-                            <td>${date[1]}/${date[0]}/${date[2]}</td>
-                            <td><a href="/records/open?id=${response[i].ID}" class="view-btn"><i data-lucide="eye"></i> Ver</a></td>
-                        </tr>
-                    `;
+            <tr>
+              <td><span class="cell-name">${response[i].Name}</span></td>
+              <td><span class="cell-lab">${response[i].Lab}</span></td>
+              <td><span class="equipment-tag">${response[i].Equipment}</span></td>
+              <td><span class="cell-date">${date[1]}/${date[0]}/${date[2]}</span></td>
+              <td><a href="/records/open?id=${response[i].ID}" class="view-btn"><i data-lucide="eye"></i> Ver</a></td>
+            </tr>
+          `;
         }
         lucide.createIcons();
       }
@@ -356,19 +334,24 @@
 
 <style>
   :root {
-    --primary: #6366f1;
-    --primary-light: #818cf8;
-    --primary-dark: #4f46e5;
-    --bg: #f8fafc;
-    --surface: #ffffff;
-    --surface-alt: #f1f5f9;
-    --text: #1e293b;
-    --text-light: #64748b;
-    --success: #10b981;
-    --danger: #ef4444;
-    --border: #e2e8f0;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    font-size: 15px;
+    --bg: #080c16;
+    --surface: #0e1524;
+    --surface-2: #162035;
+    --surface-3: #1d2d46;
+    --border: #1e3050;
+    --border-light: #253d63;
+    --text: #dde6f4;
+    --text-muted: #6a8fbc;
+    --text-dim: #3a5578;
+    --accent: #00c9b1;
+    --accent-hover: #00e5ca;
+    --accent-dim: rgba(0, 201, 177, 0.08);
+    --accent-glow: rgba(0, 201, 177, 0.22);
+    --success: #22c55e;
+    --success-dim: rgba(34, 197, 94, 0.12);
+    --danger: #f43f5e;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.3);
   }
 
   * {
@@ -382,24 +365,27 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
+    font-size: 15px;
   }
 
   .page-wrapper {
-    padding: 1rem;
-    max-width: 1200px;
+    padding: 1.25rem;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
+  /* HEADER */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-    border-radius: 16px;
-    color: white;
-    box-shadow: var(--shadow);
+    padding: 0.875rem 1.5rem;
+    margin-bottom: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--accent);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm), 0 0 28px var(--accent-glow);
   }
 
   .header-brand {
@@ -411,11 +397,13 @@
   .brand-icon {
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--accent-dim);
+    border: 1px solid rgba(0, 201, 177, 0.35);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--accent);
   }
 
   .brand-icon i {
@@ -424,269 +412,360 @@
   }
 
   .brand-text h1 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
   }
 
   .brand-text span {
-    font-size: 0.75rem;
-    opacity: 0.85;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .date-display {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    opacity: 0.9;
+    font-size: 0.78rem;
+    color: var(--text-muted);
   }
 
+  .date-display i {
+    width: 14px;
+    height: 14px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* LAYOUT */
   .main {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: 390px 1fr;
+    gap: 1.25rem;
+    align-items: start;
   }
 
+  /* CARDS */
   .form-card,
   .table-card {
     background: var(--surface);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    border-radius: 14px;
     overflow: hidden;
+    box-shadow: var(--shadow);
   }
 
   .card-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    background: var(--surface-alt);
+    padding: 0.875rem 1.25rem;
+    background: var(--surface-2);
     border-bottom: 1px solid var(--border);
   }
 
   .header-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--primary);
-    border-radius: 10px;
+    width: 34px;
+    height: 34px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(0, 201, 177, 0.3);
+    border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--accent);
+    flex-shrink: 0;
   }
 
-  .header-content {
-    flex: 1;
+  .header-icon i {
+    width: 15px;
+    height: 15px;
   }
 
   .header-content h2 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
+    color: var(--text);
   }
 
   .header-content p {
-    font-size: 0.75rem;
-    color: var(--text-light);
+    font-size: 0.7rem;
+    color: var(--text-muted);
   }
 
-  .step-indicator {
-    width: 28px;
-    height: 28px;
-    background: var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.75rem;
-  }
-
+  /* FORM */
   .form-body {
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.875rem;
   }
 
   .form-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
   }
 
-  .form-row.triple {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .form-field {
+.form-field {
     display: flex;
     flex-direction: column;
-    gap: 0.375rem;
+    gap: 0.35rem;
   }
 
   .form-field label {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
-    font-size: 0.75rem;
+    gap: 0.35rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    color: var(--text-light);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  .input-wrapper input,
-  .input-wrapper select,
-  .input-wrapper textarea {
+  .form-field label i {
+    width: 12px;
+    height: 12px;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
     width: 100%;
-    padding: 0.625rem 0.875rem;
-    border: 2px solid var(--border);
-    border-radius: 10px;
-    font-size: 0.875rem;
+    padding: 0.6rem 0.875rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
     font-family: inherit;
-    transition: all 0.2s;
-    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--text-dim);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+
+  .form-field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236a8fbc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.25rem;
+  }
+
+  .form-field select option {
+    background: var(--surface-3);
     color: var(--text);
   }
 
-  .input-wrapper input:focus,
-  .input-wrapper select:focus,
-  .input-wrapper textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-  }
-
-  .input-wrapper textarea {
+  .form-field textarea {
     min-height: 80px;
     resize: vertical;
   }
 
+  /* TOGGLES */
   .toggle-section {
     display: flex;
-    gap: 1rem;
-    padding: 0.75rem;
-    background: var(--surface-alt);
-    border-radius: 10px;
-    justify-content: center;
+    gap: 0.625rem;
   }
 
   .toggle-item {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    padding: 0.75rem 0.875rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    gap: 0.625rem;
   }
 
-  .toggle-content {
+  .toggle-label {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
-    font-size: 0.8rem;
+    gap: 0.4rem;
+    font-size: 0.76rem;
+    color: var(--text-muted);
   }
 
-  .toggle-switch {
+  .toggle-label i {
+    width: 14px;
+    height: 14px;
+  }
+
+  .switch {
     position: relative;
     width: 40px;
     height: 22px;
+    flex-shrink: 0;
   }
 
-  .toggle-switch input {
+  .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
 
-  .toggle-slider {
+  .slider {
     position: absolute;
-    cursor: pointer;
     inset: 0;
     background: var(--border);
     border-radius: 22px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: 0.25s;
   }
 
-  .toggle-slider::before {
+  .slider::before {
     content: "";
     position: absolute;
     width: 16px;
     height: 16px;
     left: 3px;
     bottom: 3px;
-    background: white;
+    background: var(--text-dim);
     border-radius: 50%;
-    transition: 0.3s;
+    transition: 0.25s;
   }
 
-  .toggle-switch input:checked+.toggle-slider {
+  .switch input:checked + .slider {
+    background: var(--success-dim);
+    border: 1px solid var(--success);
+  }
+
+  .switch input:checked + .slider::before {
     background: var(--success);
-  }
-
-  .toggle-switch input:checked+.toggle-slider::before {
     transform: translateX(18px);
   }
 
+  /* SUBMIT */
   .submit-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.375rem;
+    gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-    color: white;
+    background: var(--accent);
+    color: #05110f;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: inherit;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+
+  .submit-btn i {
+    width: 16px;
+    height: 16px;
   }
 
   .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+    background: var(--accent-hover);
+    box-shadow: 0 6px 24px var(--accent-glow);
+    transform: translateY(-1px);
   }
 
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* FILTER BAR */
   .filter-bar {
     display: flex;
+    align-items: center;
     gap: 0.75rem;
-    padding: 1rem 1.5rem;
+    padding: 0.875rem 1.25rem;
     border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
   }
 
-  .filter-select {
+  .filter-select-wrap {
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 0.375rem;
-    padding: 0 0.75rem;
-    border: 2px solid var(--border);
-    border-radius: 10px;
+    gap: 0.5rem;
+    padding: 0 0.875rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
   }
 
-  .filter-select select {
+  .filter-select-wrap i {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .filter-select-wrap select {
     flex: 1;
-    border: none;
+    padding: 0.55rem 2rem 0.55rem 0;
     background: transparent;
-    padding: 0.5rem 0;
+    border: none;
+    font-size: 0.82rem;
     font-family: inherit;
+    color: var(--text);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236a8fbc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    outline: none;
+  }
+
+  .filter-select-wrap select option {
+    background: var(--surface-3);
+    color: var(--text);
   }
 
   .filter-btn {
     display: flex;
     align-items: center;
     gap: 0.375rem;
-    padding: 0.5rem 1rem;
-    background: var(--surface-alt);
-    border: 2px solid var(--border);
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.2s;
+    padding: 0.55rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     font-size: 0.8rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .filter-btn i {
+    width: 14px;
+    height: 14px;
   }
 
   .filter-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* TABLE */
+  .table-wrap {
+    overflow-x: auto;
   }
 
   .data-table {
@@ -695,67 +774,113 @@
   }
 
   .data-table th {
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.25rem;
     text-align: left;
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-light);
-    background: var(--surface-alt);
+    letter-spacing: 0.07em;
+    color: var(--text-dim);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
   }
 
   .data-table td {
-    padding: 0.75rem 1.5rem;
+    padding: 0.7rem 1.25rem;
     border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    vertical-align: middle;
   }
 
-  .data-table tbody tr:hover {
-    background: var(--surface-alt);
+  .data-table tbody tr:last-child td {
+    border-bottom: none;
   }
 
-  .user-cell {
+  .data-table tbody tr:hover td {
+    background: var(--surface-2);
+  }
+
+  .cell-name {
     font-weight: 500;
+    color: var(--text);
+  }
+
+  .cell-lab {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  .cell-date {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    white-space: nowrap;
   }
 
   .equipment-tag {
     display: inline-block;
-    padding: 0.2rem 0.5rem;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05));
-    color: var(--primary-dark);
-    border-radius: 16px;
-    font-size: 0.7rem;
-    font-weight: 500;
+    padding: 0.2rem 0.65rem;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 201, 177, 0.22);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
   }
 
   .view-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.375rem 0.5rem;
-    background: var(--surface-alt);
+    padding: 0.3rem 0.7rem;
+    background: var(--surface-3);
+    border: 1px solid var(--border);
     border-radius: 6px;
-    color: var(--text-light);
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 0.7rem;
     font-weight: 500;
     transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .view-btn i {
+    width: 12px;
+    height: 12px;
   }
 
   .view-btn:hover {
-    background: var(--primary);
-    color: white;
+    background: var(--accent-dim);
+    border-color: rgba(0, 201, 177, 0.4);
+    color: var(--accent);
   }
 
   .required {
     color: var(--danger);
+    margin-left: 2px;
   }
 
-  @media (max-width: 768px) {
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .main {
+      grid-template-columns: 1fr;
+    }
+  }
 
-    .form-row,
-    .form-row.triple {
+  @media (max-width: 600px) {
+    .page-wrapper {
+      padding: 0.875rem;
+    }
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .form-row {
       grid-template-columns: 1fr;
     }
 
