@@ -20,6 +20,9 @@ jobs:
       - name: Fix git ownership
         run: git config --global --add safe.directory /__w/bitacora-golang/bitacora-golang
 
+      - name: Install zip
+        run: apt-get update && apt-get install -y zip
+
       - name: Build
         run: |
           mkdir -p bin
