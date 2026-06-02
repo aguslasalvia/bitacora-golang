@@ -8,11 +8,12 @@ import (
 
 func AddRecord(record core.Record) error {
 	_, err := config.Database.Exec(`
-		INSERT INTO records (name, lab, equipment, startDateTime, endDateTime,
+		INSERT INTO records (name, lab, endUser, equipment, startDateTime, endDateTime,
 			received, returned, comments, timestamp)
-		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 		record.Name,
 		record.Lab,
+		record.EndUser,
 		record.Equipment,
 		record.StartDateTime,
 		record.EndDateTime,
@@ -21,6 +22,7 @@ func AddRecord(record core.Record) error {
 		record.Comments,
 		int(time.Now().Unix()),
 	)
+	
 	return err
 }
 
@@ -28,7 +30,7 @@ func GetRecordByID(id string) (core.Record, error) {
 	var record core.Record
 
 	row := config.Database.QueryRow(`
-        SELECT id, name, lab, equipment, startDateTime, endDateTime,
+        SELECT id, name, lab, endUser, equipment, startDateTime, endDateTime,
                received, returned, comments, timestamp
         FROM records
         WHERE id = ?;
@@ -38,6 +40,7 @@ func GetRecordByID(id string) (core.Record, error) {
 		&record.ID,
 		&record.Name,
 		&record.Lab,
+		&record.EndUser,
 		&record.Equipment,
 		&record.StartDateTime,
 		&record.EndDateTime,
@@ -56,7 +59,7 @@ func GetRecordByID(id string) (core.Record, error) {
 
 func GetRecordByMachine(machine string) ([]core.Record, error) {
 	rows, err := config.Database.Query(`
-		SELECT  id, name, lab, equipment, startDateTime, endDateTime,
+		SELECT  id, name, lab, endUser, equipment, startDateTime, endDateTime,
 			received, returned, comments, timestamp
 		FROM records
 		WHERE equipment = ?
@@ -76,6 +79,7 @@ func GetRecordByMachine(machine string) ([]core.Record, error) {
 			&r.ID,
 			&r.Name,
 			&r.Lab,
+			&r.EndUser,
 			&r.Equipment,
 			&r.StartDateTime,
 			&r.EndDateTime,

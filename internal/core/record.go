@@ -4,6 +4,7 @@ type Record struct {
 	ID            int    `sql:"id"`
 	Name          string `sql:"name"`
 	Lab           string `sql:"lab"`
+	EndUser       string `sql:"endUser"`
 	Equipment     string `sql:"equipment"`
 	StartDateTime int64  `sql:"startDateTime"`
 	EndDateTime   int64  `sql:"endDateTime"`
