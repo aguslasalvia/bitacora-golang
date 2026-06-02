@@ -60,6 +60,14 @@
 
             <div class="info-item">
               <div class="info-label">
+                <i data-lucide="user-check"></i>
+                Usuario final
+              </div>
+              <div class="info-value">{{ .Record.EndUser }}</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">
                 <i data-lucide="play"></i>
                 Inicio
               </div>
@@ -438,6 +446,7 @@
 
   /* RESPONSIVE */
   @media (max-width: 560px) {
+
     .info-grid,
     .status-row {
       grid-template-columns: 1fr;
