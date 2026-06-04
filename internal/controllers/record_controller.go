@@ -3,6 +3,7 @@ package controllers
 import (
 	"bitacora/internal/core"
 	"bitacora/internal/models"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -68,6 +69,7 @@ func (rc *RecordController) GetRecordByMachine(c *gin.Context) {
 
 	records, err := models.GetRecordByMachine(machineType)
 	if err != nil {
+		fmt.Print("Error al obtener registros por máquina: ", err)
 		c.JSON(http.StatusNotFound, gin.H{"error": "NO se econtraron registros para ese equipo"})
 		return
 	}

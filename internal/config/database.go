@@ -30,7 +30,7 @@ func init() {
 		id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
 		name TEXT NOT NULL,
 		lab TEXT NOT NULL,
-		endUser TEXT NOT NULL,
+		endUser VARCHAR NOT NULL,
 		equipment TEXT NOT NULL,
 		startDateTime INTEGER NOT NULL,
 		endDateTime INTEGER,
