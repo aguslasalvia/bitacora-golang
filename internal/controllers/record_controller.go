@@ -1,11 +1,13 @@
 package controllers
 
 import (
-	"bitacora/internal/core"
-	"bitacora/internal/models"
 	"fmt"
 	"net/http"
+	"strconv"
 	"time"
+
+	"bitacora/internal/core"
+	"bitacora/internal/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,7 +27,6 @@ func (rc *RecordController) AddRecord(c *gin.Context) {
 	}
 
 	err := models.AddRecord(incomingRecord)
-
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error al crear registro"})
 		return
@@ -35,7 +36,6 @@ func (rc *RecordController) AddRecord(c *gin.Context) {
 }
 
 func (rc *RecordController) GetRecordByID(c *gin.Context) {
-
 	id := c.Query("id")
 	if id == "" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "No se ha ingresado ningun ID para buscar"})
@@ -67,7 +67,19 @@ func (rc *RecordController) GetRecordByID(c *gin.Context) {
 func (rc *RecordController) GetRecordByMachine(c *gin.Context) {
 	machineType := c.Query("type")
 
-	records, err := models.GetRecordByMachine(machineType)
+	limitStr := c.Query("limit")
+
+	limit := 10
+	if limitStr != "" {
+		parsed, err := strconv.Atoi(limitStr)
+		if err != nil || parsed <= 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "El parámetro 'limit' debe ser un número válido"})
+			return
+		}
+		limit = parsed
+	}
+
+	records, err := models.GetRecordByMachine(machineType, limit)
 	if err != nil {
 		fmt.Print("Error al obtener registros por máquina: ", err)
 		c.JSON(http.StatusNotFound, gin.H{"error": "NO se econtraron registros para ese equipo"})

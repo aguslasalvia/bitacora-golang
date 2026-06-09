@@ -1,9 +1,10 @@
 package models
 
 import (
+	"time"
+
 	"bitacora/internal/config"
 	"bitacora/internal/core"
-	"time"
 )
 
 func AddRecord(record core.Record) error {
@@ -22,7 +23,7 @@ func AddRecord(record core.Record) error {
 		record.Comments,
 		int(time.Now().Unix()),
 	)
-	
+
 	return err
 }
 
@@ -49,7 +50,6 @@ func GetRecordByID(id string) (core.Record, error) {
 		&record.Comments,
 		&record.Timestamp,
 	)
-
 	if err != nil {
 		return core.Record{}, err
 	}
@@ -57,15 +57,15 @@ func GetRecordByID(id string) (core.Record, error) {
 	return record, nil
 }
 
-func GetRecordByMachine(machine string) ([]core.Record, error) {
+func GetRecordByMachine(machine string, limit int) ([]core.Record, error) {
 	rows, err := config.Database.Query(`
 		SELECT  id, name, lab, endUser, equipment, startDateTime, endDateTime,
 			received, returned, comments, timestamp
 		FROM records
 		WHERE equipment = ?
 		ORDER BY startDateTime DESC
-		LIMIT 10
-	`, machine)
+		LIMIT ?;
+	`, machine, limit)
 	if err != nil {
 		return nil, err
 	}
