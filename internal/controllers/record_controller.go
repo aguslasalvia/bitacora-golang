@@ -72,7 +72,7 @@ func (rc *RecordController) GetRecordByMachine(c *gin.Context) {
 	limit := 10
 	if limitStr != "" {
 		parsed, err := strconv.Atoi(limitStr)
-		if err != nil || parsed <= 0 {
+		if err != nil || parsed < 0 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "El parámetro 'limit' debe ser un número válido"})
 			return
 		}

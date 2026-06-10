@@ -58,6 +58,9 @@ func GetRecordByID(id string) (core.Record, error) {
 }
 
 func GetRecordByMachine(machine string, limit int) ([]core.Record, error) {
+	if limit <= 0 {
+		limit = -1 // If the client sends 0 it means that want's all records of that machine
+	}
 	rows, err := config.Database.Query(`
 		SELECT  id, name, lab, endUser, equipment, startDateTime, endDateTime,
 			received, returned, comments, timestamp

@@ -203,9 +203,17 @@
               </option>
             </select>
           </div>
+          <div class="filter-select-wrap filter-limit-wrap">
+            <i data-lucide="list"></i>
+            <select id="slt-limit">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="0">Todos</option>
+            </select>
+          </div>
           <button type="button" class="filter-btn" onclick="loadLogsTable()">
             <i data-lucide="search"></i>
-            Buscar
           </button>
         </div>
 
@@ -332,7 +340,8 @@
     const loadLogsTable = async () => {
       let table = document.getElementById("tbody-logs");
       let equipment = document.getElementById("slt-equipment").value;
-      const response = await fetch(`/records/machine?type=${equipment}`, { method: "GET" })
+      let limit = document.getElementById("slt-limit").value;
+      const response = await fetch(`/records/machine?type=${equipment}&limit=${limit}`, { method: "GET" })
         .then((response) => response.json())
         .then((data) => data);
       table.innerHTML = "";
@@ -736,7 +745,7 @@
   /* FILTER BAR */
   .filter-bar {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 0.75rem;
     padding: 0.875rem 1.25rem;
     border-bottom: 1px solid var(--border);
@@ -763,7 +772,7 @@
 
   .filter-select-wrap select {
     flex: 1;
-    padding: 0.55rem 2rem 0.55rem 0;
+    padding: 0.75rem 2rem 0.75rem 0;
     background: transparent;
     border: none;
     font-size: 0.82rem;
@@ -782,21 +791,23 @@
     color: var(--text);
   }
 
+  .filter-limit-wrap {
+    flex: 0 0 auto;
+  }
+
   .filter-btn {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
-    padding: 0.55rem 1rem;
+    justify-content: center;
+    align-self: stretch;
+    padding: 0 1rem;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    font-family: inherit;
     color: var(--text-muted);
     cursor: pointer;
     transition: all 0.2s;
-    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .filter-btn i {
@@ -812,6 +823,8 @@
   /* TABLE */
   .table-wrap {
     overflow-x: auto;
+    overflow-y: auto;
+    max-height: 30rem;
   }
 
   .data-table {
@@ -830,6 +843,9 @@
     background: var(--surface-2);
     border-bottom: 1px solid var(--border);
     white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
 
   .data-table td {
