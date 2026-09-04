@@ -28,6 +28,7 @@ jobs:
           mkdir -p bin
           go build -v -o bin/app ./cmd/bitacora/
           cp -r ./cmd/bitacora/templates bin/
+          cp -r ./scripts bin/
 
       - name: Test
         run: go test -v ./...
