@@ -16,8 +16,11 @@ RUN go mod download
 # Copiar todo el proyecto
 COPY . .
 
-# Compilar binario
-RUN go build -o bitacora .
+# Compilar binario y dejar scripts/ y templates/ como hermanos
+RUN mkdir -p bin && \
+    go build -o bin/app ./cmd/bitacora && \
+    cp -r ./scripts bin/ && \
+    cp -r ./templates bin/
 
 # Etapa 2: Imagen final mínima
 FROM debian:11-slim
@@ -27,8 +30,10 @@ RUN apt-get update && \
     apt-get install -y libsqlite3-0 ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
-# Copiar binario desde el builder
-COPY --from=builder /app/bitacora /usr/local/bin/bitacora
+WORKDIR /app
+
+# Copiar binario junto con scripts/ y templates/ (paths relativos al cwd)
+COPY --from=builder /app/bin/ ./
 
 # Definir comando por defecto
-CMD ["/usr/local/bin/bitacora"]
+CMD ["./app"]
